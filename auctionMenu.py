@@ -15,9 +15,14 @@ print("""
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>競標品列表</title>
+<style type="text/css">
+body {width:600px; margin:10px auto;}
+#content {background-color:DarkOliveGreen; margin:20px; padding:20px; border:2px solid ivory; font-size: 14pt; color:#ff9; line-height:28px}
+a {color: yellow}
+</style>
 </head>
 <body>
-
+<div id="content">
 """)
 
 records = ctrl.getAuctionList()
@@ -29,7 +34,7 @@ print("<p><a href='bidding.html'> 我要競標 </a></p>")
 
 print("<p><a href='addNewGood.html'> 我要拍賣 </a></p>")
 
-print("<p><a href='userInfo.py'> 個人資料</a></p>")
+print("<p><a href='userId.html'> 個人資料</a></p>")
 
 
 print("</body></html>")

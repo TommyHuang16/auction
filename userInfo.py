@@ -15,14 +15,23 @@ print("""
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>個人資訊</title>
+<style type="text/css">
+body {width:600px; margin:10px auto;}
+#content {background-color:DarkOliveGreen; margin:20px; padding:20px; border:2px solid ivory; font-size: 14pt; color:#ff9; line-height:28px}
+a {color: yellow}
+</style>
 </head>
 <body>
-
+<div id="content">
 """)
 
-records = ctrl.getUserInfo()
-for (id,uName) in records:
-	print(f"<p>User ID:{id} 名稱:{uName}")
+form = cgi.FieldStorage()
+uid=form.getvalue('uid')
+
+
+records = ctrl.getUserInfo(uid)
+for (uid,uName) in records:
+	print(f"<p>User ID:{uid} 名稱:{uName}")
 
 print("<p><a href='auctionMenu.py'> 回首頁</a></p>")
 print("<p><a href='history.py'> 查看歷史紀錄</a></p>")

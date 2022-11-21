@@ -15,8 +15,14 @@ print("""
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>個人資訊</title>
+<style type="text/css">
+body {width:600px; margin:10px auto;}
+#content {background-color:DarkOliveGreen; margin:20px; padding:20px; border:2px solid ivory; font-size: 14pt; color:#ff9; line-height:28px}
+a {color: yellow}
+</style>
 </head>
 <body>
+<div id="content">
 
 """)
 
@@ -24,7 +30,7 @@ records = ctrl.getHistoryInfo()
 for (aid,id,price) in records:
 	print(f"<p>競標紀錄{aid} 商品ID:{id} 競標價格:{price}")
 
-print("<p><a href='userInfo.py'> 回個人資料</a></p>")
+print("<p><a href='auctionMenu.py'> 回首頁</a></p>")
 
 
 
