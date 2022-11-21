@@ -14,22 +14,18 @@ print("""
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>競標品列表</title>
+<title>個人資訊</title>
 </head>
 <body>
 
 """)
 
-records = ctrl.getAuctionList()
-for (id,name,price,uName) in records:
-	print(f"<p>ID:{id} 名稱:{name} 目前價格:{price} 目前得標者：{uName}</p>")
+records = ctrl.getUserInfo()
+for (id,uName) in records:
+	print(f"<p>User ID:{id} 名稱:{uName}")
 
-
-print("<p><a href='bidding.html'> 我要競標 </a></p>")
-
-print("<p><a href='addNewGood.html'> 我要拍賣 </a></p>")
-
-print("<p><a href='userInfo.py'> 個人資料</a></p>")
+print("<p><a href='auctionMenu.py'> 回首頁</a></p>")
+print("<p><a href='history.py'> 查看歷史紀錄</a></p>")
 
 
 print("</body></html>")
