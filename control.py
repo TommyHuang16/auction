@@ -11,10 +11,17 @@ def getAuctionList():
     
 def getUserInfo():
     #個人資料
-    sql="SELECT `uid`,`uName` FROM `user` where uid = 1"
+    sql="SELECT `uid`,`uName` FROM `user` where uid = 2"
     cur.execute(sql)
     records = cur.fetchall()
-    return records    
+    return records
+
+def getHistoryInfo():
+    #歷史資料
+    sql="SELECT `aid`,`id`,`price` FROM `auctioninfo` where uid = 2"
+    cur.execute(sql)
+    records = cur.fetchall()
+    return records       
     
 def bidding(uid,id,bidding):
     #競標
@@ -22,6 +29,13 @@ def bidding(uid,id,bidding):
     cur.execute(sql,(bidding,uid,id,bidding))
     conn.commit()
     return True
+
+def addAuctionInfo(uid,id,bidding):
+    #新增紀錄
+    sql="insert into auctioninfo (uid,id,price) values (%s,%s,%s);"
+    cur.execute(sql,(uid,id,bidding))
+    conn.commit()
+    return True    
     
 def addNewGood(name,price):
     #新增拍賣品
@@ -29,3 +43,4 @@ def addNewGood(name,price):
     cur.execute(sql,(name,price))
     conn.commit()
     return True    
+
