@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-11-21 07:52:44
+-- 產生時間： 2022-11-21 09:37:06
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.4
 
@@ -28,11 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `auctioninfo` (
-  `id` int(10) NOT NULL,
+  `aid` int(10) NOT NULL,
   `uid` int(10) NOT NULL,
-  `price` int(10) NOT NULL,
-  `aid` int(10) NOT NULL
+  `id` int(10) NOT NULL,
+  `price` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `auctioninfo`
+--
+
+INSERT INTO `auctioninfo` (`aid`, `uid`, `id`, `price`) VALUES
+(1, 1, 1, 2100),
+(2, 2, 2, 3000);
 
 -- --------------------------------------------------------
 
@@ -44,8 +52,17 @@ CREATE TABLE `auctionlist` (
   `id` int(10) NOT NULL,
   `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `price` int(10) NOT NULL,
-  `uid` int(10) NOT NULL
+  `uid` int(10) NOT NULL,
+  `uName` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '尚未競標'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `auctionlist`
+--
+
+INSERT INTO `auctionlist` (`id`, `name`, `price`, `uid`, `uName`) VALUES
+(1, '競標物A', 2100, 0, '阿明'),
+(2, '拍賣品B', 3000, 0, 'Eric');
 
 -- --------------------------------------------------------
 
@@ -65,8 +82,17 @@ CREATE TABLE `history` (
 --
 
 CREATE TABLE `user` (
-  `uid` int(11) NOT NULL
+  `uid` int(11) NOT NULL,
+  `uName` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `user`
+--
+
+INSERT INTO `user` (`uid`, `uName`) VALUES
+(1, '阿明'),
+(2, 'Eric');
 
 --
 -- 已傾印資料表的索引
@@ -76,7 +102,7 @@ CREATE TABLE `user` (
 -- 資料表索引 `auctioninfo`
 --
 ALTER TABLE `auctioninfo`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`aid`);
 
 --
 -- 資料表索引 `auctionlist`
@@ -95,6 +121,22 @@ ALTER TABLE `history`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`);
+
+--
+-- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+--
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `auctioninfo`
+--
+ALTER TABLE `auctioninfo`
+  MODIFY `aid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `auctionlist`
+--
+ALTER TABLE `auctionlist`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
