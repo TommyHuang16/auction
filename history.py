@@ -26,9 +26,13 @@ a {color: yellow}
 
 """)
 
-records = ctrl.getHistoryInfo()
-for (aid,id,price) in records:
-	print(f"<p>競標紀錄{aid} 商品ID:{id} 競標價格:{price}")
+form = cgi.FieldStorage()
+id=form.getvalue('id')
+
+records = ctrl.getBidInfo(id)
+print("<p>歷史紀錄</p>")
+for (id,price,uName) in records:
+	print(f"<p>商品ID:{id} 競標價格:{price} 競標者:{uName}")
 
 print("<p><a href='auctionMenu.py'> 回首頁</a></p>")
 

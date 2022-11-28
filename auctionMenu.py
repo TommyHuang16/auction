@@ -29,8 +29,11 @@ records = ctrl.getAuctionList()
 for (id,name,price,uName,expireTime) in records:
 	print(f"<p>ID:{id} 名稱:{name} 目前價格:{price} 目前得標者：{uName} </p> <p>競標到期時間：{expireTime}</p>")
 
+print("<p>=================================================</p>")
 
 print("<p><a href='bidding.html'> 我要競標 </a></p>")
+
+print("<p><a href='history.html'> 查詢拍賣品競標紀錄</a></p>")
 
 print("<p><a href='addNewGood.html'> 我要拍賣 </a></p>")
 

@@ -26,15 +26,15 @@ a {color: yellow}
 """)
 
 form = cgi.FieldStorage()
-uid=form.getvalue('uid')
+uName=form.getvalue('uName')
 
 
-records = ctrl.getUserInfo(uid)
+records = ctrl.getUserInfo(uName)
 for (uid,uName) in records:
 	print(f"<p>User ID:{uid} 名稱:{uName}")
 
-print("<p>歷史紀錄：</p>")
-records = ctrl.getHistoryInfo(uid)
+print("<p>競標紀錄：</p>")
+records = ctrl.getHistoryInfo(uName)
 for (id,price) in records:
 	print(f"<p>商品ID:{id} 競標價格:{price}")
 

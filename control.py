@@ -9,17 +9,24 @@ def getAuctionList():
     records = cur.fetchall()
     return records
     
-def getUserInfo(uid):
+def getUserInfo(uName):
     #個人資料
-    sql="SELECT `uid`,`uName` FROM `user` where uid = %s"
-    cur.execute(sql,(uid,))
+    sql="SELECT `uid`,`uName` FROM `user` where uName = %s"
+    cur.execute(sql,(uName,))
+    records = cur.fetchall()
+    return records
+    
+def getBidInfo(id):
+    #個人資料
+    sql="SELECT `id`,`price`,`uName` FROM `auctioninfo` where id = %s order by aid asc;"
+    cur.execute(sql,(id,))
     records = cur.fetchall()
     return records
 
-def getHistoryInfo(uid):
+def getHistoryInfo(uName):
     #歷史資料
-    sql="SELECT `id`,`price` FROM `auctioninfo` where uid = %s"
-    cur.execute(sql,(uid,))
+    sql="SELECT `id`,`price` FROM `auctioninfo` where uid = (select uid from user where uName = %s) "
+    cur.execute(sql,(uName,))
     records = cur.fetchall()
     return records       
     
