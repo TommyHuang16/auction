@@ -26,8 +26,8 @@ a {color: yellow}
 """)
 
 records = ctrl.getAuctionList()
-for (id,name,price,uName) in records:
-	print(f"<p>ID:{id} 名稱:{name} 目前價格:{price} 目前得標者：{uName}</p>")
+for (id,name,price,uName,expireTime) in records:
+	print(f"<p>ID:{id} 名稱:{name} 目前價格:{price} 目前得標者：{uName} </p> <p>競標到期時間：{expireTime}</p>")
 
 
 print("<p><a href='bidding.html'> 我要競標 </a></p>")

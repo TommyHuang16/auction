@@ -33,8 +33,13 @@ records = ctrl.getUserInfo(uid)
 for (uid,uName) in records:
 	print(f"<p>User ID:{uid} 名稱:{uName}")
 
+print("<p>歷史紀錄：</p>")
+records = ctrl.getHistoryInfo(uid)
+for (id,price) in records:
+	print(f"<p>商品ID:{id} 競標價格:{price}")
+
 print("<p><a href='auctionMenu.py'> 回首頁</a></p>")
-print("<p><a href='history.py'> 查看歷史紀錄</a></p>")
+
 
 
 print("</body></html>")

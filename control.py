@@ -4,7 +4,7 @@ from dbConfig import conn, cur
 
 def getAuctionList():
     #拍賣首頁
-    sql="SELECT `id`, `name`, `price`, `uName` FROM `auctionlist` order by id asc;"
+    sql="SELECT `id`, `name`, `price`, `uName`,`expireTime` FROM `auctionlist` order by id asc;"
     cur.execute(sql)
     records = cur.fetchall()
     return records
@@ -16,10 +16,10 @@ def getUserInfo(uid):
     records = cur.fetchall()
     return records
 
-def getHistoryInfo():
+def getHistoryInfo(uid):
     #歷史資料
-    sql="SELECT `aid`,`id`,`price` FROM `auctioninfo` where uid = 1"
-    cur.execute(sql)
+    sql="SELECT `id`,`price` FROM `auctioninfo` where uid = %s"
+    cur.execute(sql,(uid,))
     records = cur.fetchall()
     return records       
     
