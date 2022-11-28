@@ -42,5 +42,12 @@ def addNewGood(name,price):
     sql="insert into auctionlist (name,price) values (%s,%s);"
     cur.execute(sql,(name,price))
     conn.commit()
-    return True    
+    return True 
+
+def addUser(name):
+    #新增拍賣品
+    sql="insert into user (uName) values (%s);"
+    cur.execute(sql,(name,))
+    conn.commit()
+    return True      
 

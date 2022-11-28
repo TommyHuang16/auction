@@ -36,6 +36,8 @@ print("<p><a href='addNewGood.html'> 我要拍賣 </a></p>")
 
 print("<p><a href='userId.html'> 個人資料</a></p>")
 
+print("<p><a href='addUser.html'> 新增用戶</a></p>")
+
 
 print("</body></html>")
 
