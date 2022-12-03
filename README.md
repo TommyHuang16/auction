@@ -4,6 +4,7 @@
 功能都寫好了
 
 db: test
+
 table: bid(bID,uID,oID,price)
        object(oID,name,expire,uID,text(varchar(50))
 
