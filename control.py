@@ -39,14 +39,14 @@ def bidding(uid,id,bidding):
 
 def addAuctionInfo(uid,id,bidding):
     #新增紀錄
-    sql="insert into auctioninfo (uid,id,price) values (%s,%s,%s);"
-    cur.execute(sql,(uid,id,bidding))
+    sql="insert into auctioninfo (uid,id,price,uName) values (%s,%s,%s,(select uName from user where uid= %s));"
+    cur.execute(sql,(uid,id,bidding,uid))
     conn.commit()
     return True    
     
 def addNewGood(name,price):
     #新增拍賣品
-    sql="insert into auctionlist (name,price) values (%s,%s);"
+    sql="insert into auctionlist (name,price,expireTime) values (%s,%s,now()+interval 10 minute);"
     cur.execute(sql,(name,price))
     conn.commit()
     return True 
