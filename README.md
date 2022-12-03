@@ -2,9 +2,11 @@
 2022/11/21 class practice
 109213067 資管三 黃瑜楓
 功能都寫好了
+
 db: test
 table: bid(bID,uID,oID,price)
        object(oID,name,expire,uID,text(varchar(50))
+
 main.html
 1. 新增拍賣
 2. 顯示正在拍賣的所有商品
