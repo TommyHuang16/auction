@@ -10,7 +10,7 @@ from dbConfig import conn, cur
 
 
 def add(uID, text, objName):
-	sql ="insert into `object` (name,uID,expire,text ) values (%s,%s,now()+interval 1 minute,%s);" # 拍賣開啟10分鐘
+	sql ="insert into `object` (name,uID,expire,text ) values (%s,%s,now()+interval 10 minute,%s);" # 拍賣開啟10分鐘
 	print(objName)
 	cur.execute(sql,(objName, uID, text))
 	conn.commit()
